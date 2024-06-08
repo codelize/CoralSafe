@@ -1,3 +1,6 @@
+# Link do vídeo no youtube
+https://www.youtube.com/watch?v=eE1Ppwcqgog
+
 # Ferramentas Utilizadas na VM
 
 - **Google Chrome** - Versão 125.0.6422.142 - Foi utilizado para testar a aplicação em .NET
