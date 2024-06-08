@@ -1,0 +1,122 @@
+﻿@model Ong
+@*
+
+*@
+@{
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            font-family: 'Roboto', sans-serif;
+            color: #495057;
+            margin: 0;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .register-box {
+            position: absolute;
+            top: 50%; /* Posiciona no meio da tela verticalmente */
+            left: 50%; /* Posiciona no meio da tela horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta precisamente para o centro do elemento */
+            width: 100%; /* Largura total da caixa de registro */
+            max-width: 400px; /* Ajuste a largura do formulário conforme necessário */
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px; /* Borda arredondada */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-container {
+            margin-top: 80px;
+        }
+
+            .form-container h1 {
+                text-align: center;
+                font-size: 3rem;
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+
+            .form-container form {
+                margin: 0 auto;
+                max-width: 400px; /* Ajuste a largura do formulário conforme necessário */
+            }
+
+                .form-container form .form-group {
+                    margin-bottom: 20px;
+                }
+
+                    .form-container form .form-group label {
+                        font-weight: 600;
+                    }
+
+                    .form-container form .form-group input[type="text"],
+                    .form-container form .form-group input[type="submit"] {
+                        width: 100%;
+                        padding: 12px;
+                        font-size: 1rem;
+                        border-radius: 5px;
+                        border: 1px solid #ced4da;
+                        transition: border-color 0.3s ease;
+                    }
+
+                        .form-container form .form-group input[type="text"]:focus {
+                            border-color: #007bff;
+                        }
+
+                    .form-container form .form-group input[type="submit"] {
+                        background-color: #007bff;
+                        color: white;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                        .form-container form .form-group input[type="submit"]:hover {
+                            background-color: #0056b3;
+                        }
+    </style>
+
+    <div class="register-page" style="background-color:white">
+
+        <div class="register-box">
+            <div class="card">
+                <div class="card-body register-card-body" style="background-color:white">
+                    <p class="login-box-msg">Seja bem-vindo novamente!</p>
+
+                    <form asp-controller="Ong" asp-action="EfetuarLogin" method="post">
+                        <div class="input-group mb-3">
+                            <input name="email" asp-for="email" type="" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- /.card -->
+        </div>
+        <!-- /.register-box -->
+    </div>
+
+    </div>
+</body>
+</html>
+

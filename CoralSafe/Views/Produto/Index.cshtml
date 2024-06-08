@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CoralSafe.Models.Produto>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Produtos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Produtos</h1>
+        <table class="table table-hover table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Pontos Necessários</th>
+                    <th scope="col">ID do Usuário que criou</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => produto.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => produto.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => produto.QntPontos)</td>
+                        <td>@Html.DisplayFor(modelItem => produto.UserId)</td>
+                       
+                        <td>
+                            <a role="button" class="btn btn-warning btn-sm m-1" asp-route-id="@produto.ID" asp-controller="Produto" asp-action="Editar">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a role="button" class="btn btn-danger btn-sm m-1" asp-route-id="@produto.ID" asp-controller="Produto" asp-action="Deletar">
+                                <i class="fas fa-trash-alt"></i> Apagar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-primary" asp-controller="Produto" asp-action="Criar">
+                <i class="fas fa-plus-circle"></i> Adicionar novo produto
+            </a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

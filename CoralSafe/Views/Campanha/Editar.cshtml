@@ -1,0 +1,29 @@
+﻿@model Campanha
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="container mt-5">
+    <h2>Editar Campanha</h2>
+    <form asp-controller="Campanha" asp-action="Editar" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" name="OngId" value="@ViewBag.OngId" />
+        <div class="form-group">
+            <label>Nome da Campanha:</label>
+            <input type="text" asp-for="name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Descrição:</label>
+            <textarea asp-for="descricao" class="form-control" rows="5"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Meta de Valor (R$):</label>
+            <input type="number" asp-for="valorMeta" class="form-control" min="0.01" step="0.01" />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+</div>

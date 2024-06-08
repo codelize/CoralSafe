@@ -1,0 +1,68 @@
+﻿@model Campanha
+
+@{
+    Layout = "_Layout";  // Certifique-se de que este layout contém sua navbar e footer corretamente configurados.
+}
+<style>
+    /* Estilo para garantir que o conteúdo principal não seja sobreposto */
+    .main-content {
+        padding-top: 70px;  /* Ajuste conforme a altura da sua navbar */
+        padding-bottom: 100px; /* Ajuste conforme a altura do seu footer */
+        overflow-y: auto;  /* Adiciona barra de rolagem vertical se necessário */
+        height: calc(100vh - 170px); /* Altura total da viewport menos navbar e footer */
+    }
+
+    .container {
+        width: 80%;  /* Largura do container */
+        max-width: 960px; /* Largura máxima */
+        margin: 0 auto; /* Centraliza o container */
+    }
+
+    /* Estilo para o formulário e seus elementos */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    input, textarea {
+        border: 1px solid #ced4da;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
+    }
+
+    input:focus, textarea:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+</style>
+<div class="main-content">
+    <div class="container mt-5">
+        <h2>Lance sua Campanha com atenção!</h2>
+        <form asp-controller="Campanha" asp-action="Criar" method="post">
+            <input type="hidden" name="OngId" value="@ViewBag.OngId" />
+
+            <div class="form-group">
+                <label for="Name">Nome da Campanha:</label>
+                <input type="text" name="Name" asp-for="name" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="Descricao">Descrição:</label>
+                <textarea name="Descricao" asp-for="descricao" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="ValorMeta">Meta de Valor (R$):</label>
+                <input type="number" name="ValorMeta" asp-for="valorMeta" class="form-control" required min="0.01" step="0.01" />
+            </div>
+            <button type="submit" class="btn btn-primary">Lançar Campanha</button>
+        </form>
+    </div>
+</div>

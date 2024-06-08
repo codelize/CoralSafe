@@ -1,0 +1,29 @@
+﻿@model Produto
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container mt-5">
+    <h2>Adicione um Produto com Atenção!</h2>
+    <form asp-controller="Produto" asp-action="Criar" method="post">
+        <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />
+
+        <div class="form-group">
+            <label for="Name">Nome do Produto:</label>
+            <input type="text" asp-for="Name" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Descrição:</label>
+            <textarea asp-for="Description" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="QntPontos">Quantidade de Pontos:</label>
+            <input type="number" asp-for="QntPontos" class="form-control" required min="1" step="1" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+    </form>
+</div>

@@ -1,0 +1,155 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    /* Adiciona isso ao seu arquivo CSS existente */
+    .profile-col {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        height: 100vh; /* Altura completa da viewport */
+        padding: 0; /* Remove o padding se existir */
+    }
+
+    .flex-container {
+        width: 100%; /* Ocupa a largura total do contêiner */
+        display: flex;
+        flex-direction: column; /* Organiza o conteúdo verticalmente */
+        align-items: center; /* Alinha horizontalmente no centro */
+    }
+
+    .list-group-item {
+        justify-content: space-between; /* Espaçamento entre itens da lista */
+        display: flex;
+        align-items: center;
+        width: 100%; /* Garante que o item da lista ocupe a largura total do contêiner */
+    }
+
+        .list-group-item a {
+            margin-left: auto; /* Alinha os links à direita, mantendo os títulos à esquerda */
+        }
+
+    .btn-block {
+        width: 90%; /* Ajuste de acordo com a preferência para o botão */
+        text-align: center;
+    }
+
+</style>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="profile-username">@ViewBag.Ong.Name</h3>
+            <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                    <input name="id" type="number" value="@ViewBag.Ong.Id" hidden />
+                    <b>Description</b> <a class="float-right">@ViewBag.Ong.Description</a>
+                </li>
+                <li class="list-group-item">
+                    <b>E-mail</b> <a class="float-right">@ViewBag.Ong.email</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Tempo de Existencia ong</b> <a class="float-right">@ViewBag.Ong.CreatedOng</a>
+                </li>
+                <li class="list-group-item">
+                    <b>endereco</b> <a class="float-right">@ViewBag.Ong.endereco</a>
+                </li>
+                <li class="list-group-item">
+                    <b>estado</b> <a class="float-right">@ViewBag.Ong.estado</a>
+                </li>
+                <li class="list-group-item">
+                    <b>telefone</b> <a class="float-right">@ViewBag.Ong.telefone</a>
+                </li>
+            </ul>
+            <a href="#settings" class="btn btn-primary btn-block" id="editProfileButton"><b>Editar Dados</b></a>
+            <br />
+            <a asp-controller="Ong" asp-action="Delete" class="btn btn-primary btn-block"><b>Apagar Perfil</b></a>
+            <br />
+             <a asp-controller="Campanha" asp-action="Index" class="btn btn-primary btn-block"><b>Criar Campanha</b></a>
+        </div>
+    </div>
+
+    <!-- Card para o formulário -->
+    <div class="card" style="width: 100%; display: none;" id="settings">
+        <div class="card-body">
+            <form class="form-horizontal" asp-controller="Ong" asp-action="UpdateOng">
+                <input name="id" type="number" value="@ViewBag.Ong.Id" hidden />
+                <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+    <div class="col-sm-10">
+        <input name="name" type="text" class="form-control" id="inputName" placeholder="Nome">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputDescription" class="col-sm-2 col-form-label">Descrição</label>
+    <div class="col-sm-10">
+        <input name="description" type="text" class="form-control" id="inputDescription" placeholder="Descrição">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputCreatedOng" class="col-sm-2 col-form-label">Data de Criação</label>
+    <div class="col-sm-10">
+        <input name="createdOng" type="date" class="form-control" id="inputCreatedOng" placeholder="Data de Criação">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputEndereco" class="col-sm-2 col-form-label">Endereço</label>
+    <div class="col-sm-10">
+        <input name="endereco" type="text" class="form-control" id="inputEndereco" placeholder="Endereço">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputEstado" class="col-sm-2 col-form-label">Estado</label>
+    <div class="col-sm-10">
+        <input name="estado" type="text" class="form-control" id="inputEstado" placeholder="Estado">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputTelefone" class="col-sm-2 col-form-label">Telefone</label>
+    <div class="col-sm-10">
+        <input name="telefone" type="text" class="form-control" id="inputTelefone" placeholder="Telefone">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputCnpj" class="col-sm-2 col-form-label">CNPJ</label>
+    <div class="col-sm-10">
+        <input name="cnpj" type="number" class="form-control" id="inputCnpj" placeholder="CNPJ">
+    </div>
+</div
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('editProfileButton').addEventListener('click', function (event) {
+        event.preventDefault();
+        var settingsDiv = document.getElementById('settings');
+        if (settingsDiv.style.display === 'none' || settingsDiv.style.display === '') {
+            settingsDiv.style.display = 'block';
+        } else {
+            settingsDiv.style.display = 'none';
+        }
+    });
+</script> 

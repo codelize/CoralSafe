@@ -1,0 +1,64 @@
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.navbar .nav-item[b-vc9ztj46m1] {
+    margin-right: 20px; /* Adiciona espaço à direita de cada item do nav */
+}
+
+.navbar form[b-vc9ztj46m1], .navbar .text-end[b-vc9ztj46m1] {
+    margin-left: 20px; /* Adiciona espaço à esquerda do formulário de busca e dos botões de login/sign-up */
+}
+
+.navbar-brand[b-vc9ztj46m1] {
+    margin-right: 20px; /* Adiciona espaço à direita do logo e nome */
+    white-space: normal; /* Mantém o texto em uma linha, permitindo quebra de linha conforme necessário */
+    text-align: center;
+    word-break: break-all;
+}
+
+
+
+
+a[b-vc9ztj46m1] {
+    color: #0077cc;
+}
+
+.btn-primary[b-vc9ztj46m1] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-vc9ztj46m1], .nav-pills .show > .nav-link[b-vc9ztj46m1] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top[b-vc9ztj46m1] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-vc9ztj46m1] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-vc9ztj46m1] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-vc9ztj46m1] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+.footer[b-vc9ztj46m1] {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

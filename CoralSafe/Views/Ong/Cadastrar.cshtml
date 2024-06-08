@@ -1,0 +1,172 @@
+﻿@model Ong
+@*
+
+*@
+@{
+}
+
+    <style >
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #e0f7fa;
+        color: #0277bd;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Espaça uniformemente o conteúdo */
+        min-height: 100vh;
+        overflow: auto;
+        line-height: 1.6;
+        padding: 0;
+    }
+
+    .register-box {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin: 20px auto; /* Centraliza horizontalmente e adiciona espaço */
+    }
+
+    .form-container {
+        margin-top: 20px; /* Ajuste conforme necessário */
+    }
+
+        .form-container h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-container form {
+            margin: 0 auto;
+            width: 100%; /* Ajuste para ocupar a largura necessária */
+        }
+
+            .form-container form .form-group {
+                margin-bottom: 20px;
+            }
+
+                .form-container form .form-group label {
+                    font-weight: 600;
+                }
+
+                .form-container form .form-group input[type="text"],
+                .form-container form .form-group input[type="submit"] {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 1rem;
+                    border-radius: 5px;
+                    border: 1px solid #ced4da;
+                }
+
+                    .form-container form .form-group input[type="text"]:focus,
+                    .form-container form .form-group input[type="submit"]:hover {
+                        border-color: #007bff;
+                        background-color: #0056b3;
+                        color: white;
+                    }
+
+
+</style>
+
+
+<body>
+    
+    
+
+    <div class="register-page" style="background-color:white">
+
+        <div class="register-box">
+            <div class="card">
+                <div class="card-body register-card-body" style="background-color:white">
+                    <p class="login-box-msg">Register a new membership</p>
+
+                    <form asp-controller="Ong" asp-action="Cadastrar" method="post">
+                        <div class="input-group mb-3">
+                            <input name="Name" asp-for="Name" type="text" class="form-control" placeholder="Name ong">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input name="Description" asp-for="Description" type="text" class="form-control" placeholder="Descrição">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name="CreatedOng" asp-for="CreatedOng" type="datetime" class="form-control" placeholder="Data de Criação da ong">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name="endereco" asp-for="endereco" type="text" class="form-control" placeholder="Endereço">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name="estado" asp-for="estado" type="text" class="form-control" placeholder="Estado">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name="telefone" asp-for="telefone" type="text" class="form-control" placeholder="Telefone">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name="email" asp-for="email" type="text" class="form-control" placeholder="E-mail">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="input-group mb-3">
+                            <input name="cnpj" asp-for="cnpj" type="text" class="form-control" placeholder="Cnpj">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+                    <a asp-controller="Ong" asp-action="Login" class="text-center">Já tenho conta</a>
+                </div>
+              
+            </div><!-- /.card -->
+        </div>
+        
+    </div>
+
+    </div>
+
+</body>

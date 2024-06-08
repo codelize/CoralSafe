@@ -1,0 +1,44 @@
+﻿@model FeedView
+@{
+    ViewData["Title"] = "Feed";
+}
+
+<div class="container mt-4">
+    <h1>Produtos</h1>
+    <div class="row">
+        @foreach (var produto in Model.Produtos)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@produto.Name</h5>
+                        <p class="card-text">@produto.Description</p>
+                        <p class="card-text"><small class="text-muted">Pontos necessários: @produto.QntPontos</small></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h1>Campanhas</h1>
+    <div class="row">
+        @foreach (var campanha in Model.Campanhas)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@campanha.name</h5>
+                        <p class="card-text">@campanha.descricao</p>
+                        <p class="card-text"><small class="text-muted">Meta: R$ @campanha.valorMeta</small></p>
+                        <p class="card-text"><small class="text-muted">Publicado em: @campanha.data_publicacao.ToShortDateString()</small></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
